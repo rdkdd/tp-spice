@@ -127,7 +127,7 @@ elif args.cb2img:
         image.save(args.cb2img, ftype)
         logger.info("Store image to %s.", args.cb2img)
     else:
-        raise Exception("Clipboard doesn't have an image.")
+        logger.error("Clipboard doesn't have an image.")
 elif args.cb2txtf:
     text = clipboard.wait_for_text()
     assert isinstance(text, str)
@@ -137,7 +137,7 @@ elif args.cb2txtf:
 elif args.cb2stdout:
     targets = clipboard.wait_for_targets()
     if not targets:
-        raise Exception("Clipboard is empty.")
+        logger.error("Clipboard is empty.")
     elif 'image/png' in targets:
         selectiondata = clipboard.wait_for_contents('image/png')
         pixbuf = selectiondata.get_pixbuf()
