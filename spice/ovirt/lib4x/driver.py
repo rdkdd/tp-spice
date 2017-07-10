@@ -42,8 +42,8 @@ class FreshWebElement(object):
     --------
 
         console._model.rd_console._elem.is_displayed, is_enabled, ...
-        console._model.rd_console._elem.click() == (console._model.
-                                                    rd_console.click())
+        console._model.rd_console._elem.click() == \
+            console._model.rd_console.click()
 
     """
 
